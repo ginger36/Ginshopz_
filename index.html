@@ -3,24 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ginshopz - Pastel Soft Power Shop</title>
+    <title>Ginshopz - Phungju Style Neon Blue</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Mitr:wght@300;400;500&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Mitr:wght@300;400;500;600&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* โทนสีตามรูปพังจู (Dark Blue Neon Theme) */
         :root {
-            --bg-pastel-pink: #FFF0F5;
-            --pastel-cream: #FFFDF9;
-            --pastel-pink: #FFD1DC;
-            --pastel-mint: #B2F2BB;
-            --pastel-blue: #A5D8FF;
-            --pastel-gold: #FFE066;
-            --text-dark: #4A4A4A;
-            --primary-emerald: #087F5B;
+            --bg-deep-blue: #0A0D28;
+            --card-navy: #121841;
+            --card-border: #2A3680;
+            --neon-blue: #3A75FF;
+            --neon-pink: #FF4181;
+            --text-light: #E0E6FF;
+            --text-sub: #91A0D7;
+            --pill-bg: #1B235A;
+        }
+
+        /* ธีม Pastel สลับสไตล์ */
+        body.pastel-theme {
+            --bg-deep-blue: #F0F4FF;
+            --card-navy: #FFFFFF;
+            --card-border: #C6D4FF;
+            --neon-blue: #5C8AFF;
+            --neon-pink: #FF70A6;
+            --text-light: #2B3A67;
+            --text-sub: #6C7DAB;
+            --pill-bg: #E3ECFF;
+        }
+
+        /* ธีม Bright สลับสไตล์ */
+        body.bright-theme {
+            --bg-deep-blue: #141A46;
+            --card-navy: #1D2663;
+            --card-border: #4D5DBE;
+            --neon-blue: #00E5FF;
+            --neon-pink: #FF2A85;
+            --text-light: #FFFFFF;
+            --text-sub: #B8C7FF;
+            --pill-bg: #283584;
         }
 
         * {
@@ -28,247 +53,278 @@
             margin: 0;
             padding: 0;
             font-family: 'Prompt', 'Mitr', sans-serif;
+            transition: background-color 0.3s, border-color 0.3s;
         }
 
         body {
-            background-color: var(--bg-pastel-pink);
-            color: var(--text-dark);
+            background-color: var(--bg-deep-blue);
+            color: var(--text-light);
             padding: 20px 10px 80px;
             display: flex;
             justify-content: center;
         }
 
-        /* App Container Style ทรงการ์ดมินิมอล */
+        /* App Container ขนาดสไตล์สมาร์ตโฟนการ์ด */
         .app-container {
             width: 100%;
-            max-width: 500px;
-            background: var(--pastel-cream);
-            border-radius: 35px;
-            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.3);
-            border: 4px solid #FFFFFF;
-            padding: 25px 20px;
-            overflow: hidden;
+            max-width: 450px;
+            background: var(--bg-deep-blue);
+            padding: 10px;
         }
 
-        /* Banner เครดิตเก่า */
+        /* Legacy Link Banner */
         .legacy-banner {
-            background: linear-gradient(135deg, var(--pastel-gold), #FFD43B);
-            color: #5c4d00;
+            background: linear-gradient(90deg, #1B235A, #2A3680);
+            border: 1px solid var(--neon-blue);
+            color: var(--text-light);
             text-align: center;
-            padding: 10px 15px;
-            border-radius: 18px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
             margin-bottom: 20px;
         }
         .legacy-banner a {
-            color: #382f00;
+            color: var(--neon-pink);
             font-weight: 600;
             text-decoration: underline;
         }
 
-        /* Header */
+        /* Header Branding */
         header {
             text-align: center;
             margin-bottom: 25px;
+            position: relative;
         }
         .logo-title {
-            font-family: 'Fredoka', 'Mitr', sans-serif;
+            font-family: 'Fredoka', sans-serif;
             font-size: 2.2rem;
-            color: var(--primary-emerald);
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px rgba(58, 117, 255, 0.6);
+        }
+        .badge-welcome {
+            display: inline-block;
+            color: var(--text-sub);
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+        }
+
+        /* Card Section Component */
+        .card-box {
+            background: var(--card-navy);
+            border: 1.5px solid var(--card-border);
+            border-radius: 24px;
+            padding: 20px 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-family: 'Fredoka', 'Mitr', sans-serif;
+            font-size: 1.2rem;
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 15px;
             letter-spacing: 1px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
         }
-        .badge-sub {
-            display: inline-block;
-            background: var(--pastel-pink);
-            color: #8a3b4d;
-            padding: 4px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-top: 5px;
-        }
 
-        /* UI Box Components */
-        .card-box {
-            background: #FFFFFF;
-            border-radius: 22px;
-            padding: 18px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
-            border: 1.5px solid #F0F0F0;
-        }
-
-        .section-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary-emerald);
-            margin-bottom: 15px;
+        /* Theme Switcher Buttons (ตามรูปภาพต้นฉบับ) */
+        .theme-switcher {
             display: flex;
-            align-items: center;
             gap: 8px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .btn-theme {
+            flex: 1;
+            padding: 8px 4px;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            background: var(--pill-bg);
+            color: var(--text-light);
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .btn-theme:hover {
+            border-color: var(--neon-blue);
         }
 
         /* 1. About Shop */
         .about-text {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.5;
+            font-size: 0.85rem;
+            color: var(--text-sub);
             text-align: center;
+            line-height: 1.6;
         }
 
-        /* 2. Product Items (การ์ดตัวอย่างงาน) */
+        /* 2. Product Items (PORTFOLIO / WEB SERVICES) */
         .product-item {
-            background: var(--bg-pastel-pink);
+            background: var(--pill-bg);
+            border: 1px solid var(--card-border);
             border-radius: 18px;
             padding: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
-            gap: 12px;
             align-items: center;
+            gap: 12px;
         }
         .product-img {
-            width: 70px;
-            height: 70px;
-            border-radius: 14px;
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
             object-fit: cover;
-            background: #fff;
+            background: var(--card-navy);
         }
         .product-info {
             flex: 1;
         }
         .product-name {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            color: var(--text-dark);
+            color: #FFFFFF;
         }
         .product-desc {
             font-size: 0.75rem;
-            color: #888;
-            margin-top: 2px;
+            color: var(--text-sub);
         }
         .btn-preview {
-            background: var(--primary-emerald);
-            color: #fff;
+            background: linear-gradient(135deg, var(--neon-blue), #2554C7);
+            color: #FFFFFF;
             border: none;
-            padding: 7px 14px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 14px;
+            font-size: 0.75rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: 0.2s;
-        }
-        .btn-preview:hover {
-            transform: scale(1.05);
-            background: #066347;
+            box-shadow: 0 4px 10px rgba(58, 117, 255, 0.3);
         }
 
-        /* 3. Contacts Grid */
-        .contacts-flex {
+        /* 3. Contact Buttons */
+        .contacts-grid {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 10px;
         }
         .contact-btn {
-            flex: 1 1 calc(50% - 10px);
-            background: var(--pastel-cream);
-            border: 1.5px solid var(--pastel-blue);
-            padding: 10px;
-            border-radius: 15px;
+            background: var(--pill-bg);
+            border: 1px solid var(--card-border);
+            padding: 12px 16px;
+            border-radius: 16px;
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text-light);
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: space-between;
             font-size: 0.85rem;
             font-weight: 500;
         }
-        .contact-icon {
-            width: 30px;
-            height: 30px;
-            background: var(--pastel-blue);
-            color: #1c4f72;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
+        .contact-btn:hover {
+            border-color: var(--neon-blue);
         }
 
-        /* 4. Reviews & Credits */
+        /* 4. Reviews & Credits System */
         .review-card {
-            padding: 12px 15px;
+            background: var(--pill-bg);
+            padding: 12px 14px;
             border-radius: 16px;
             margin-bottom: 10px;
-            font-size: 0.85rem;
-            border: 2px solid transparent;
+            font-size: 0.82rem;
+            border: 1.5px solid transparent;
         }
-        .frame-gold { border-color: var(--pastel-gold); background: #FFFDF0; }
-        .frame-pink { border-color: var(--pastel-pink); background: #FFF5F7; }
-        .frame-blue { border-color: var(--pastel-blue); background: #F0F8FF; }
-        .frame-mint { border-color: var(--pastel-mint); background: #F0FFF4; }
+        .frame-blue { border-color: var(--neon-blue); }
+        .frame-pink { border-color: var(--neon-pink); }
+        .frame-purple { border-color: #9D4EDD; }
 
-        .review-user {
+        .review-header {
             display: flex;
             justify-content: space-between;
+            color: var(--neon-blue);
             font-weight: 600;
             margin-bottom: 4px;
-            color: var(--primary-emerald);
         }
 
         /* Inputs */
         .form-input {
             width: 100%;
-            padding: 10px 12px;
-            border: 1.5px solid #EAEAEA;
-            border-radius: 12px;
+            padding: 10px 14px;
+            background: var(--pill-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            color: #FFFFFF;
             font-size: 0.85rem;
             margin-bottom: 10px;
             outline: none;
         }
-        .form-input:focus { border-color: var(--primary-emerald); }
+        .form-input:focus {
+            border-color: var(--neon-blue);
+        }
 
         .frame-select-box {
             display: flex;
-            gap: 8px;
-            margin-bottom: 10px;
+            gap: 10px;
+            margin: 8px 0 12px;
         }
         .frame-dot {
-            width: 25px;
-            height: 25px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             cursor: pointer;
             border: 2px solid transparent;
         }
-        .frame-dot.selected { border-color: var(--text-dark); transform: scale(1.1); }
+        .frame-dot.selected {
+            border-color: #FFFFFF;
+            transform: scale(1.15);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(90deg, var(--neon-pink), #D81B60);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 65, 129, 0.3);
+        }
 
         /* Floating Admin Button */
         .admin-float-btn {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #FFFFFF;
-            color: var(--primary-emerald);
-            border: 2px solid var(--primary-emerald);
+            background: var(--card-navy);
+            color: var(--neon-blue);
+            border: 1.5px solid var(--neon-blue);
             padding: 10px 18px;
-            border-radius: 25px;
+            border-radius: 30px;
             font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            z-index: 99;
         }
 
-        /* Modal Base */
+        /* Modal Popup System */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
             justify-content: center;
             align-items: center;
             z-index: 1000;
@@ -276,10 +332,11 @@
         }
         .modal.active { display: flex; }
         .modal-body {
-            background: #FFF;
+            background: var(--card-navy);
+            border: 1.5px solid var(--neon-blue);
             width: 100%;
-            max-width: 420px;
-            border-radius: 25px;
+            max-width: 400px;
+            border-radius: 24px;
             padding: 20px;
             max-height: 85vh;
             overflow-y: auto;
@@ -290,166 +347,177 @@
             top: 15px; right: 20px;
             font-size: 1.2rem;
             cursor: pointer;
-            color: #999;
+            color: var(--text-sub);
         }
 
-        .btn-submit {
-            width: 100%;
-            background: var(--primary-emerald);
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 12px;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        .admin-item-row {
+        .admin-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #F9F9F9;
+            background: var(--pill-bg);
             padding: 8px 12px;
             border-radius: 10px;
             margin-bottom: 6px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
         .btn-del {
-            background: #FF6B6B;
+            background: #FF4D4D;
             color: white;
             border: none;
-            padding: 3px 8px;
-            border-radius: 6px;
+            padding: 4px 8px;
+            border-radius: 8px;
             cursor: pointer;
+            font-size: 0.75rem;
         }
     </style>
 </head>
 <body>
 
     <div class="app-container">
-        <!-- ลิงก์เครดิตเก่า -->
+        <!-- 1. ลิงก์ตารางสีมงคล / เครดิตเก่า ด้านบน -->
         <div class="legacy-banner">
-            ✨ ดูตารางสีมงคล & <a href="https://example.com/old-credits" target="_blank">ลิงก์เครดิตงานเก่าคลิกที่นี่</a>
+            ✨ ดูตารางแผ่นชาร์ตสีมงคล & <a href="https://example.com/old-credits" target="_blank">คลิกดูลิ้งก์เครดิตเก่า</a>
         </div>
 
-        <!-- Header -->
+        <!-- Header Store -->
         <header>
-            <div class="logo-title">
-                <i class="fa-solid fa-heart" style="font-size: 1.5rem; color: var(--pastel-pink);"></i> GINSHOPZ
-            </div>
-            <span class="badge-sub">WELCOME TO MY SHOP</span>
+            <div class="logo-title">✦ GINSHOPZ ✦</div>
+            <div class="badge-welcome">WELCOME TO MY SHOP</div>
         </header>
 
-        <!-- 1. รายละเอียดร้าน -->
+        <!-- 2. รายละเอียดร้าน -->
         <div class="card-box">
-            <div class="section-title"><i class="fa-solid fa-store"></i> เกี่ยวกับร้านค้า</div>
+            <div class="section-title"><i class="fa-solid fa-store" style="color: var(--neon-pink);"></i> ABOUT STORE</div>
             <p class="about-text">
-                ยินดีต้อนรับสู่ Ginshopz ร้านรวมสินค้างานมินิมอลน่ารัก ซอฟต์พาวเวอร์ สีพาสเทลและสีมงคลเขียวมรกต-ทองแชมเปญ เพิ่มความปังให้ชีวิต ✨
+                ร้านบริการทำเว็บไซต์ร้านค้า สไตล์พังจู-นีออนมินิมอล น่ารักซอฟต์พาวเวอร์ รวมสินค้าและบริการเสริมความปัง ปรับแต่งสีได้ตามใจคุณ ✨
             </p>
         </div>
 
-        <!-- 2. ตัวอย่างสินค้า (กดแล้วเปิดหน้าต่างใหม่) -->
+        <!-- 3. หมวดหมู่ PORTFOLIO & สลับธีม (ตามรูปตัวอย่าง) -->
         <div class="card-box">
-            <div class="section-title"><i class="fa-solid fa-cubes"></i> ตัวอย่างผลงาน / สินค้า</div>
+            <div class="section-title"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--neon-blue);"></i> PORTFOLIO</div>
+            
+            <p class="about-text" style="font-size: 0.8rem;">ทดลองเปลี่ยนโทนสีสไตล์ร้านค้า:</p>
+            <div class="theme-switcher">
+                <button class="btn-theme" onclick="setTheme('bright')">
+                    <i class="fa-solid fa-sun" style="color: #FFD166;"></i> BRIGHT
+                </button>
+                <button class="btn-theme" onclick="setTheme('dark')">
+                    <i class="fa-solid fa-moon" style="color: var(--neon-blue);"></i> DARK
+                </button>
+                <button class="btn-theme" onclick="setTheme('pastel')">
+                    <i class="fa-solid fa-heart" style="color: var(--neon-pink);"></i> PASTEL
+                </button>
+            </div>
+        </div>
+
+        <!-- 4. ตัวอย่างสินค้า / WEB SERVICES (กดดูแล้วเปิดหน้าต่างใหม่) -->
+        <div class="card-box">
+            <div class="section-title"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> WEB SERVICES</div>
             <div id="productGrid">
                 <!-- โหลดสินค้าด้วย JS -->
             </div>
         </div>
 
-        <!-- 3. ช่องทางการติดต่อ -->
+        <!-- 5. ช่องทางการติดต่อ -->
         <div class="card-box">
-            <div class="section-title"><i class="fa-solid fa-comments"></i> ช่องทางติดต่อ</div>
-            <div class="contacts-flex" id="contactGrid">
+            <div class="section-title"><i class="fa-solid fa-paper-plane" style="color: var(--neon-pink);"></i> CONTACT US</div>
+            <div class="contacts-grid" id="contactGrid">
                 <!-- โหลดช่องทางติดต่อด้วย JS -->
             </div>
         </div>
 
-        <!-- 4. ระบบเครดิต & รีวิว -->
+        <!-- 6. ระบบเก็บเครดิต & คอมเมนต์รีวิว -->
         <div class="card-box">
-            <div class="section-title"><i class="fa-solid fa-star"></i> ฝากรีวิว & เครดิตลูกค้า</div>
+            <div class="section-title"><i class="fa-solid fa-star" style="color: #FFD166;"></i> CUSTOMER REVIEWS</div>
             
             <form id="reviewForm">
-                <input type="text" id="revName" class="form-input" placeholder="ชื่อของคุณ" required>
-                <textarea id="revComment" class="form-input" rows="2" placeholder="เขียนข้อความรีวิว..." required></textarea>
+                <input type="text" id="revName" class="form-input" placeholder="ใส่ชื่อของคุณ..." required>
+                <textarea id="revComment" class="form-input" rows="2" placeholder="ใส่คอมเมนต์รีวิว..." required></textarea>
                 
-                <div style="font-size: 0.8rem; margin-bottom: 5px; color: #666;">เลือกสีกรอบการ์ดข้อความ:</div>
+                <div style="font-size: 0.75rem; color: var(--text-sub);">เลือกสีกรอบการ์ดข้อความ:</div>
                 <div class="frame-select-box">
-                    <div class="frame-dot selected" style="background: var(--pastel-pink);" data-frame="frame-pink"></div>
-                    <div class="frame-dot" style="background: var(--pastel-gold);" data-frame="frame-gold"></div>
-                    <div class="frame-dot" style="background: var(--pastel-blue);" data-frame="frame-blue"></div>
-                    <div class="frame-dot" style="background: var(--pastel-mint);" data-frame="frame-mint"></div>
+                    <div class="frame-dot selected" style="background: var(--neon-blue);" data-frame="frame-blue"></div>
+                    <div class="frame-dot" style="background: var(--neon-pink);" data-frame="frame-pink"></div>
+                    <div class="frame-dot" style="background: #9D4EDD;" data-frame="frame-purple"></div>
                 </div>
 
-                <button type="submit" class="btn-submit" style="background: #e07a5f; margin-bottom: 15px;">ส่งรีวิว ⭐</button>
+                <button type="submit" class="btn-submit">ส่งรีวิว & ให้ดาว ⭐⭐⭐⭐⭐</button>
             </form>
 
-            <!-- รายการรีวิว -->
-            <div id="reviewsGrid"></div>
+            <div id="reviewsGrid" style="margin-top: 15px;"></div>
         </div>
     </div>
 
-    <!-- ปุ่มเปิดหลังบ้าน -->
+    <!-- ปุ่มเปิดระบบหลังบ้าน -->
     <button class="admin-float-btn" onclick="checkAdminAccess()">
-        <i class="fa-solid fa-lock"></i> หลังบ้าน
+        <i class="fa-solid fa-key"></i> หลังบ้าน
     </button>
 
-    <!-- Modal ระบบหลังบ้าน -->
+    <!-- Modal หลังบ้าน Admin Panel -->
     <div class="modal" id="adminModal">
         <div class="modal-body">
             <span class="close-modal" onclick="closeModal('adminModal')">&times;</span>
-            <h3 style="color: var(--primary-emerald); margin-bottom: 15px;">⚙️ ระบบจัดการหลังบ้าน</h3>
+            <h3 style="color: #FFFFFF; text-align: center; margin-bottom: 15px;">⚙️ ระบบหลังบ้าน Admin</h3>
             
             <!-- เพิ่มสินค้า -->
-            <div style="border-bottom: 1px dashed #ccc; padding-bottom: 12px; margin-bottom: 12px;">
-                <h5 style="margin-bottom: 8px;">+ เพิ่มตัวอย่างสินค้าใหม่</h5>
-                <input type="text" id="pTitle" class="form-input" placeholder="ชื่อตัวอย่าง/สินค้า">
+            <div style="border-bottom: 1px dashed var(--card-border); padding-bottom: 12px; margin-bottom: 12px;">
+                <h5 style="color: var(--neon-blue); margin-bottom: 8px;">+ เพิ่มตัวอย่างสินค้า/บริการ</h5>
+                <input type="text" id="pTitle" class="form-input" placeholder="ชื่อสินค้า/งาน">
                 <input type="text" id="pImg" class="form-input" placeholder="URL รูปภาพ">
-                <input type="text" id="pLink" class="form-input" placeholder="URL ลิงก์ตัวอย่างงาน (เมื่อกดดู)">
-                <button onclick="addProduct()" class="btn-submit">+ เพิ่มสินค้า</button>
+                <input type="text" id="pLink" class="form-input" placeholder="URL ลิงก์ตัวอย่าง (เมื่อกดดู)">
+                <button onclick="addProduct()" class="btn-submit" style="background: var(--neon-blue);">+ เพิ่มสินค้า</button>
             </div>
 
             <!-- เพิ่มช่องทางติดต่อ -->
-            <div style="border-bottom: 1px dashed #ccc; padding-bottom: 12px; margin-bottom: 12px;">
-                <h5 style="margin-bottom: 8px;">+ เพิ่มช่องทางติดต่อ</h5>
-                <input type="text" id="cName" class="form-input" placeholder="ชื่อช่องทาง (เช่น IG / LINE)">
+            <div style="border-bottom: 1px dashed var(--card-border); padding-bottom: 12px; margin-bottom: 12px;">
+                <h5 style="color: var(--neon-pink); margin-bottom: 8px;">+ เพิ่มช่องทางติดต่อ</h5>
+                <input type="text" id="cName" class="form-input" placeholder="ชื่อช่องทาง (เช่น LINE / IG)">
                 <input type="text" id="cLink" class="form-input" placeholder="URL ลิงก์ติดต่อ">
-                <button onclick="addContact()" class="btn-submit">+ เพิ่มช่องทาง</button>
+                <button onclick="addContact()" class="btn-submit" style="background: var(--neon-pink);">+ เพิ่มช่องทาง</button>
             </div>
 
-            <!-- รายการลบข้อมูล -->
+            <!-- ลบข้อมูล -->
             <div>
-                <h5 style="margin-bottom: 8px;">จัดการ / ลบข้อมูล</h5>
+                <h5 style="color: #FFD166; margin-bottom: 8px;">จัดการ / ลบข้อมูล</h5>
                 <div id="adminItemsList"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // รหัสผ่านสำหรับเข้าหลังบ้าน (ตั้งค่าไว้ที่ 1234)
+        // รหัสผ่านเข้าหลังบ้าน (ตั้งไว้ที่ 1234)
         const ADMIN_PASS = "1234";
 
         // Initial Data
-        let products = JSON.parse(localStorage.getItem('gin_p')) || [
-            { id: 1, title: 'ตัวอย่างเว็บบอร์ด Pastel', img: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=300', link: 'https://google.com' },
-            { id: 2, title: 'แม่แบบ Goodnotes Cute', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300', link: 'https://google.com' }
+        let products = JSON.parse(localStorage.getItem('gin_p_v2')) || [
+            { id: 1, title: 'เว็บร้านค้าสไตล์พังจู', img: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=300', link: 'https://google.com' },
+            { id: 2, title: 'เทมเพลตป้าย Goodnotes', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300', link: 'https://google.com' }
         ];
 
-        let contacts = JSON.parse(localStorage.getItem('gin_c')) || [
-            { id: 1, name: 'LINE Official', link: 'https://line.me', icon: 'fa-brands fa-line' },
-            { id: 2, name: 'Instagram', link: 'https://instagram.com', icon: 'fa-brands fa-instagram' }
+        let contacts = JSON.parse(localStorage.getItem('gin_c_v2')) || [
+            { id: 1, name: 'LINE Official Account', link: 'https://line.me', icon: 'fa-brands fa-line' },
+            { id: 2, name: 'Instagram Store', link: 'https://instagram.com', icon: 'fa-brands fa-instagram' }
         ];
 
-        let reviews = JSON.parse(localStorage.getItem('gin_r')) || [
-            { id: 1, name: 'คุณเมย์', comment: 'เว็บน่ารักมากค่ะ งานไวตรงปกสุดๆ ⭐⭐⭐⭐⭐', frame: 'frame-pink' },
-            { id: 2, name: 'คุณแบม', comment: 'ชอบโทนสีพาสเทลร้านนี้มากๆ แนะนำเลยค่า', frame: 'frame-gold' }
+        let reviews = JSON.parse(localStorage.getItem('gin_r_v2')) || [
+            { id: 1, name: 'คุณเมย์', comment: 'งานสวยเนี๊ยบ โทนสีนีออนพังจูสวยมากๆ ค่ะ ⭐⭐⭐⭐⭐', frame: 'frame-blue' },
+            { id: 2, name: 'คุณแบม', comment: 'บริการดีมาก ส่งงานไวสุดๆ แนะนำเลยค่ะ', frame: 'frame-pink' }
         ];
 
-        let selectedFrame = 'frame-pink';
+        let selectedFrame = 'frame-blue';
+
+        // สลับธีมสี (Bright, Dark, Pastel)
+        function setTheme(theme) {
+            document.body.classList.remove('bright-theme', 'pastel-theme');
+            if (theme === 'bright') document.body.classList.add('bright-theme');
+            if (theme === 'pastel') document.body.classList.add('pastel-theme');
+        }
 
         function saveData() {
-            localStorage.setItem('gin_p', JSON.stringify(products));
-            localStorage.setItem('gin_c', JSON.stringify(contacts));
-            localStorage.setItem('gin_r', JSON.stringify(reviews));
+            localStorage.setItem('gin_p_v2', JSON.stringify(products));
+            localStorage.setItem('gin_c_v2', JSON.stringify(contacts));
+            localStorage.setItem('gin_r_v2', JSON.stringify(reviews));
             render();
         }
 
@@ -460,42 +528,42 @@
                     <img src="${p.img}" class="product-img">
                     <div class="product-info">
                         <div class="product-name">${p.title}</div>
-                        <div class="product-desc">คลิกปุ่มเพื่อเปิดดูตัวอย่าง</div>
+                        <div class="product-desc">กดเพื่อเปิดดูตัวอย่างงาน</div>
                     </div>
-                    <button class="btn-preview" onclick="openPreview('${p.link}')">ดูตัวอย่าง</button>
+                    <button class="btn-preview" onclick="openPreview('${p.link}')">CLICK TO VIEW</button>
                 </div>
             `).join('');
 
             // Render Contacts
             document.getElementById('contactGrid').innerHTML = contacts.map(c => `
                 <a href="${c.link}" target="_blank" class="contact-btn">
-                    <div class="contact-icon"><i class="${c.icon || 'fa-solid fa-link'}"></i></div>
-                    <span>${c.name}</span>
+                    <span><i class="${c.icon || 'fa-solid fa-link'}" style="margin-right: 8px; color: var(--neon-blue);"></i> ${c.name}</span>
+                    <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem; color: var(--text-sub);"></i>
                 </a>
             `).join('');
 
             // Render Reviews
             document.getElementById('reviewsGrid').innerHTML = reviews.map(r => `
                 <div class="review-card ${r.frame}">
-                    <div class="review-user">
+                    <div class="review-header">
                         <span>${r.name}</span>
                         <span>⭐⭐⭐⭐⭐</span>
                     </div>
-                    <div>${r.comment}</div>
+                    <div style="color: var(--text-light);">${r.comment}</div>
                 </div>
             `).join('');
         }
 
-        // กดดูตัวอย่างแล้วเปิดหน้าต่างใหม่
+        // กดดูตัวอย่างงานแล้วเปิดหน้าต่างใหม่
         function openPreview(url) {
             if (url) {
                 window.open(url, '_blank');
             } else {
-                alert('ยังไม่มีลิงก์ตัวอย่างสินค้า');
+                alert('ยังไม่ได้ใส่ลิงก์ตัวอย่างสินค้า');
             }
         }
 
-        // ระบบเลือกกรอบการ์ด
+        // ระบบเลือกสีกรอบการ์ดคอมเมนต์
         document.querySelectorAll('.frame-dot').forEach(dot => {
             dot.addEventListener('click', (e) => {
                 document.querySelectorAll('.frame-dot').forEach(d => d.classList.remove('selected'));
@@ -504,7 +572,7 @@
             });
         });
 
-        // ส่งรีวิว
+        // ส่งคอมเมนต์รีวิว
         document.getElementById('reviewForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('revName').value;
@@ -513,9 +581,10 @@
             reviews.unshift({ id: Date.now(), name, comment, frame: selectedFrame });
             saveData();
             document.getElementById('reviewForm').reset();
+            alert('ขอบคุณสำหรับรีวิวค่ะ! ✨');
         });
 
-        // ตรวจสอบรหัสผ่านก่อนเข้าหลังบ้าน
+        // ตรวจสอบรหัสผ่านหลังบ้าน
         function checkAdminAccess() {
             const pwd = prompt("กรุณากรอกรหัสผ่านเพื่อเข้าสู่ระบบหลังบ้าน:");
             if (pwd === ADMIN_PASS) {
@@ -530,10 +599,10 @@
             document.getElementById(modalId).classList.remove('active');
         }
 
-        // Admin Actions
+        // Admin Functions
         function addProduct() {
             const title = document.getElementById('pTitle').value;
-            const img = document.getElementById('pImg').value || 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300';
+            const img = document.getElementById('pImg').value || 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=300';
             const link = document.getElementById('pLink').value || 'https://google.com';
 
             if (title) {
@@ -569,25 +638,25 @@
 
         function renderAdminList() {
             const container = document.getElementById('adminItemsList');
-            let html = '<div style="font-size:0.8rem; font-weight:600; margin-top:5px;">สินค้า:</div>';
+            let html = '<div style="font-size:0.8rem; color:var(--neon-blue); margin-top:5px;">สินค้า:</div>';
             html += products.map(p => `
-                <div class="admin-item-row">
+                <div class="admin-row">
                     <span>${p.title}</span>
                     <button class="btn-del" onclick="deleteItem('product', ${p.id})">ลบ</button>
                 </div>
             `).join('');
 
-            html += '<div style="font-size:0.8rem; font-weight:600; margin-top:5px;">ช่องทางติดต่อ:</div>';
+            html += '<div style="font-size:0.8rem; color:var(--neon-pink); margin-top:5px;">ช่องทางติดต่อ:</div>';
             html += contacts.map(c => `
-                <div class="admin-item-row">
+                <div class="admin-row">
                     <span>${c.name}</span>
                     <button class="btn-del" onclick="deleteItem('contact', ${c.id})">ลบ</button>
                 </div>
             `).join('');
 
-            html += '<div style="font-size:0.8rem; font-weight:600; margin-top:5px;">รีวิว:</div>';
+            html += '<div style="font-size:0.8rem; color:#FFD166; margin-top:5px;">รีวิว:</div>';
             html += reviews.map(r => `
-                <div class="admin-item-row">
+                <div class="admin-row">
                     <span>${r.name}</span>
                     <button class="btn-del" onclick="deleteItem('review', ${r.id})">ลบ</button>
                 </div>
