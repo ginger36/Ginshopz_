@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ginshopz - ร้านค้ามินิมอลสีมงคล</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-cream: #FFF7E8;      /* ครีมงา น่าเชื่อถือ สบายตา */
+            --primary-emerald: #087F5B;/* เขียวมรกต การงาน เงิน เติบโต */
+            --accent-gold: #D6B56D;   /* แชมเปญโกลด์ จุดเน้น */
+            --soft-pink: #F3B6A6;     /* ชมพูพีช เอ็นดู มีเสน่ห์ */
+            --soft-sky: #9DD9D2;      /* ฟ้าอมเขียวอ่อน ราบรื่น */
+            --text-main: #2C3E35;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Prompt', 'Mitr', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* Legacy Link Banner */
+        .legacy-banner {
+            background-color: var(--accent-gold);
+            color: var(--white);
+            text-align: center;
+            padding: 10px 15px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .legacy-banner a {
+            color: var(--white);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Branding */
+        header {
+            text-align: center;
+            padding: 35px 20px 20px;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-emerald);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Mitr', sans-serif;
+        }
+        .tagline {
+            color: var(--primary-emerald);
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-top: 5px;
+        }
+
+        /* Card Section Component */
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--primary-emerald);
+            margin: 40px 0 20px;
+            position: relative;
+            font-family: 'Mitr', sans-serif;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* 1. Shop Details */
+        .about-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 8px 20px rgba(8, 127, 91, 0.05);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .about-card p {
+            font-size: 1.05rem;
+            max-width: 800px;
+            margin: 0 auto 15px;
+        }
+        .highlights {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .chip {
+            background-color: var(--soft-sky);
+            color: var(--primary-emerald);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* 2. Products Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(214, 181, 109, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(8, 127, 91, 0.1);
+        }
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #f0f0f0;
+        }
+        .product-info {
+            padding: 18px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-emerald);
+        }
+        .btn-view {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary-emerald);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 15px;
+            transition: background-color 0.2s;
+        }
+        .btn-view:hover {
+            background-color: #066347;
+        }
+
+        /* 3. Contact Channels */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .contact-card {
+            background: var(--white);
+            padding: 18px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--text-main);
+            border: 1px solid var(--soft-pink);
+            transition: transform 0.2s;
+        }
+        .contact-card:hover {
+            transform: scale(1.02);
+            background-color: #fffaf8;
+        }
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--soft-pink);
+            color: var(--primary-emerald);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        /* 4. Credit & Review System */
+        .review-form-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 18px;
+            border: 2px dashed var(--accent-gold);
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+        }
+        .form-control:focus {
+            border-color: var(--primary-emerald);
+        }
+        .star-rating {
+            font-size: 1.5rem;
+            color: #ccc;
+            cursor: pointer;
+        }
+        .star-rating .fa-star.active {
+            color: #ffc107;
+        }
+
+        /* Frame Style Options */
+        .frame-selector {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .frame-opt {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .frame-opt.selected {
+            border-color: var(--primary-emerald);
+            transform: scale(1.1);
+        }
+
+        /* Review Cards with Custom Borders */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .review-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 16px;
+            position: relative;
+        }
+        /* Custom Decorative Frame Classes */
+        .frame-gold { border: 3px solid var(--accent-gold); }
+        .frame-pink { border: 3px solid var(--soft-pink); }
+        .frame-sky { border: 3px solid var(--soft-sky); }
+        .frame-emerald { border: 3px solid var(--primary-emerald); }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--primary-emerald);
+        }
+        .stars {
+            color: #ffc107;
+        }
+
+        /* 5. Admin Panel Toggle & Modal */
+        .admin-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-emerald);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            font-weight: 500;
+            z-index: 100;
+        }
+
+        /* Modal Base */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 20px;
+            max-width: 550px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+        }
+
+        /* Admin Tabs & Lists */
+        .admin-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: var(--bg-cream);
+            margin-bottom: 8px;
+            border-radius: 8px;
+        }
+        .btn-delete {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 768px) {
+            .logo { font-size: 2rem; }
+            .about-card { padding: 20px; }
+            .grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ลิงก์เครดิตเก่า / สีมงคล ด้านบน -->
+    <div class="legacy-banner">
+        ✨ ดูตารางแผ่นชาร์ตสีมงคล และ <a href="https://example.com/old-credits" target="_blank">คลิกเพื่อดูลิ้งก์เครดิตลูกค้าเก่า</a>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fa-regular fa-face-smile-wink"></i> Ginshopz
+            </div>
+            <div class="tagline">รวมสินค้าน่ารัก เติมพลังบวก เสริมความปังให้ชีวิต</div>
+        </header>
+
+        <!-- 1. รายละเอียดร้าน -->
+        <section>
+            <div class="about-card">
+                <h2 style="color: var(--primary-emerald); margin-bottom: 10px;">เกี่ยวกับร้าน Ginshopz</h2>
+                <p>ยินดีต้อนรับสู่ร้านค้าสไตล์ไทย-มินิมอล ซอฟต์พาวเวอร์น่ารักๆ ร้านเราคัดสรรสินค้าคุณภาพที่คุมโทนสีมงคลเขียวมรกตและแชมเปญโกลด์ เพื่อความมั่งคั่ง การงานเติบโต และสบายใจทุกครั้งที่ใช้งานค่ะ</p>
+                <div class="highlights">
+                    <span class="chip">🌿 สินค้าคัดสรรพิเศษ</span>
+                    <span class="chip">✨ คุมโทนสีมงคล</span>
+                    <span class="chip">💖 บริการด้วยใจ</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. สินค้า / ตัวอย่าง -->
+        <section>
+            <h2 class="section-title">ตัวอย่างสินค้า</h2>
+            <div class="grid" id="productGrid">
+                <!-- สินค้าจะถูกโหลดมาจาก JS -->
+            </div>
+        </section>
+
+        <!-- 3. ช่องทางการติดต่อ -->
+        <section>
+            <h2 class="section-title">ช่องทางการติดต่อ</h2>
+            <div class="contact-grid" id="contactGrid">
+                <!-- ช่องทางติดต่อจะถูกโหลดมาจาก JS -->
+            </div>
+        </section>
+
+        <!-- 4. ระบบเครดิต / รีวิวจากลูกค้า -->
+        <section>
+            <h2 class="section-title">เครดิต & รีวิวจากลูกค้า</h2>
+            
+            <!-- ฟอร์มเพิ่มรีวิว -->
+            <div class="review-form-card">
+                <h3 style="margin-bottom: 15px; color: var(--primary-emerald);">ฝากรีวิว / ให้เครดิตร้านค้า</h3>
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label>ชื่อของคุณ:</label>
+                        <input type="text" id="reviewerName" class="form-control" placeholder="เช่น คุณเมย์" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ให้คะแนนร้านค้า:</label>
+                        <div class="star-rating" id="starInput">
+                            <i class="fa-solid fa-star active" data-value="1"></i>
+                            <i class="fa-solid fa-star active" data-value="2"></i>
+                            <i class="fa-solid fa-star active" data-value="3"></i>
+                            <i class="fa-solid fa-star active" data-value="4"></i>
+                            <i class="fa-solid fa-star active" data-value="5"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>เลือกสีกรอบข้อความรีวิว:</label>
+                        <div class="frame-selector">
+                            <div class="frame-opt selected" style="background: var(--accent-gold)" data-frame="frame-gold"></div>
+                            <div class="frame-opt" style="background: var(--soft-pink)" data-frame="frame-pink"></div>
+                            <div class="frame-opt" style="background: var(--soft-sky)" data-frame="frame-sky"></div>
+                            <div class="frame-opt" style="background: var(--primary-emerald)" data-frame="frame-emerald"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>ความประทับใจ / ข้อความ:</label>
+                        <textarea id="reviewComment" class="form-control" rows="3" placeholder="เขียนความรู้สึกของคุณ..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-view" style="width: auto; padding: 10px 25px;">ส่งรีวิว ✨</button>
+                </form>
+            </div>
+
+            <!-- รายการรีวิว -->
+            <div class="reviews-grid" id="reviewsGrid">
+                <!-- รีวิวจะถูกแสดงที่นี่ -->
+            </div>
+        </section>
+    </div>
+
+    <!-- ปุ่มเปิดระบบหลังบ้าน -->
+    <button class="admin-toggle-btn" onclick="openAdminModal()">
+        <i class="fa-solid fa-gear"></i> ระบบหลังบ้าน (Admin)
+    </button>
+
+    <!-- Modal 1: ดูรายละเอียดสินค้า (สำหรับลูกค้า) -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('productModal')">&times;</span>
+            <img id="modalImg" src="" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px; margin-bottom: 15px;">
+            <h3 id="modalTitle" style="color: var(--primary-emerald);"></h3>
+            <p id="modalDesc" style="margin-top: 10px; color: #555;"></p>
+        </div>
+    </div>
+
+    <!-- Modal 2: ระบบหลังบ้าน (Admin Dashboard) -->
+    <div class="modal" id="adminModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('adminModal')">&times;</span>
+            <h2 style="color: var(--primary-emerald); margin-bottom: 20px;">⚙️ ระบบจัดการหลังบ้าน</h2>
+            
+            <!-- เพิ่มสินค้าใหม่ -->
+            <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                <h4>เพิ่มสินค้า / ตัวอย่างใหม่</h4>
+                <input type="text" id="newProdTitle" class="form-control" placeholder="ชื่อสินค้า" style="margin: 8px 0;">
+                <input type="text" id="newProdImg" class="form-control" placeholder="URL รูปภาพสินค้า" style="margin: 8px 0;">
+                <textarea id="newProdDesc" class="form-control" placeholder="รายละเอียดสินค้า" style="margin: 8px 0;"></textarea>
+                <button onclick="addProduct()" class="btn-view" style="padding: 8px 15px;">+ เพิ่มสินค้า</button>
+            </div>
+
+            <!-- เพิ่มช่องทางติดต่อ -->
+            <div style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                <h4>เพิ่มช่องทางการติดต่อ</h4>
+                <input type="text" id="newContactName" class="form-control" placeholder="ชื่อช่องทาง (เช่น LINE / IG)" style="margin: 8px 0;">
+                <input type="text" id="newContactLink" class="form-control" placeholder="URL หรือ ID" style="margin: 8px 0;">
+                <button onclick="addContact()" class="btn-view" style="padding: 8px 15px;">+ เพิ่มช่องทาง</button>
+            </div>
+
+            <!-- จัดการการลบข้อมูล -->
+            <div>
+                <h4>จัดการรายการปัจจุบัน</h4>
+                <div id="adminItemsList" style="margin-top: 10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initial Data (ข้อมูลเริ่มต้น)
+        let products = JSON.parse(localStorage.getItem('gin_products')) || [
+            { id: 1, title: 'กระเป๋าสตางค์เขียวมรกต', img: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=500', desc: 'กระเป๋าพกพาสีเขียวมรกตเสริมโชคลาภ ด้านในมีช่องใส่การ์ดเยอะมาก' },
+            { id: 2, title: 'พวงกุญแจแชมเปญโกลด์', img: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500', desc: 'พวงกุญแจตกแต่งสีทองมินิมอล ช่วยดึงดูดพลังบวกและความเจริญรุ่งเรือง' }
+        ];
+
+        let contacts = JSON.parse(localStorage.getItem('gin_contacts')) || [
+            { id: 1, name: 'Line Official', link: 'https://line.me', icon: 'fa-brands fa-line' },
+            { id: 2, name: 'Instagram', link: 'https://instagram.com', icon: 'fa-brands fa-instagram' },
+            { id: 3, name: 'Facebook', link: 'https://facebook.com', icon: 'fa-brands fa-facebook' }
+        ];
+
+        let reviews = JSON.parse(localStorage.getItem('gin_reviews')) || [
+            { id: 1, name: 'คุณแป้ง', rating: 5, frame: 'frame-gold', comment: 'งานน่ารักมากตรงปกสุดๆ สีสวยขับผิวมากค่ะ' },
+            { id: 2, name: 'คุณพลอย', rating: 5, frame: 'frame-pink', comment: 'ส่งของไวมาก แพ็กมาอย่างดี ประทับใจมากค่ะ' }
+        ];
+
+        let selectedRating = 5;
+        let selectedFrame = 'frame-gold';
+
+        // Save Data to LocalStorage
+        function saveData() {
+            localStorage.setItem('gin_products', JSON.stringify(products));
+            localStorage.setItem('gin_contacts', JSON.stringify(contacts));
+            localStorage.setItem('gin_reviews', JSON.stringify(reviews));
+            render();
+        }
+
+        // Render Functions
+        function render() {
+            // Render Products
+            const productGrid = document.getElementById('productGrid');
+            productGrid.innerHTML = products.map(p => `
+                <div class="product-card">
+                    <img src="${p.img}" class="product-img" alt="${p.title}">
+                    <div class="product-info">
+                        <div class="product-title">${p.title}</div>
+                        <button class="btn-view" onclick="openProductModal(${p.id})">ดูรายละเอียด</button>
+                    </div>
+                </div>
+            `).join('');
+
+            // Render Contacts
+            const contactGrid = document.getElementById('contactGrid');
+            contactGrid.innerHTML = contacts.map(c => `
+                <a href="${c.link}" target="_blank" class="contact-card">
+                    <div class="contact-icon"><i class="${c.icon || 'fa-solid fa-paper-plane'}"></i></div>
+                    <div>
+                        <div style="font-weight: 600;">${c.name}</div>
+                        <div style="font-size: 0.85rem; color: #777;">คลิกเพื่อติดต่อ</div>
+                    </div>
+                </a>
+            `).join('');
+
+            // Render Reviews
+            const reviewsGrid = document.getElementById('reviewsGrid');
+            reviewsGrid.innerHTML = reviews.map(r => `
+                <div class="review-card ${r.frame}">
+                    <div class="review-header">
+                        <span class="reviewer-name">${r.name}</span>
+                        <span class="stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span>
+                    </div>
+                    <p style="color: #444; font-size: 0.95rem;">"${r.comment}"</p>
+                </div>
+            `).join('');
+        }
+
+        // Star Rating Selection
+        document.querySelectorAll('#starInput i').forEach(star => {
+            star.addEventListener('click', (e) => {
+                selectedRating = parseInt(e.target.getAttribute('data-value'));
+                document.querySelectorAll('#starInput i').forEach((s, idx) => {
+                    if (idx < selectedRating) s.classList.add('active');
+                    else s.classList.remove('active');
+                });
+            });
+        });
+
+        // Frame Selection
+        document.querySelectorAll('.frame-opt').forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                document.querySelectorAll('.frame-opt').forEach(o => o.classList.remove('selected'));
+                e.target.classList.add('selected');
+                selectedFrame = e.target.getAttribute('data-frame');
+            });
+        });
+
+        // Add Review
+        document.getElementById('reviewForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('reviewerName').value;
+            const comment = document.getElementById('reviewComment').value;
+
+            reviews.unshift({
+                id: Date.now(),
+                name: name,
+                rating: selectedRating,
+                frame: selectedFrame,
+                comment: comment
+            });
+
+            saveData();
+            document.getElementById('reviewForm').reset();
+            alert('ขอบคุณสำหรับรีวิวค่ะ ✨');
+        });
+
+        // Modal Controls
+        function openProductModal(id) {
+            const product = products.find(p => p.id === id);
+            if (product) {
+                document.getElementById('modalImg').src = product.img;
+                document.getElementById('modalTitle').innerText = product.title;
+                document.getElementById('modalDesc').innerText = product.desc;
+                document.getElementById('productModal').classList.add('active');
+            }
+        }
+
+        function openAdminModal() {
+            renderAdminItems();
+            document.getElementById('adminModal').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Admin Action Functions
+        function addProduct() {
+            const title = document.getElementById('newProdTitle').value;
+            const img = document.getElementById('newProdImg').value || 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500';
+            const desc = document.getElementById('newProdDesc').value;
+
+            if (title && desc) {
+                products.push({ id: Date.now(), title, img, desc });
+                saveData();
+                renderAdminItems();
+                document.getElementById('newProdTitle').value = '';
+                document.getElementById('newProdImg').value = '';
+                document.getElementById('newProdDesc').value = '';
+            }
+        }
+
+        function addContact() {
+            const name = document.getElementById('newContactName').value;
+            const link = document.getElementById('newContactLink').value;
+
+            if (name && link) {
+                contacts.push({ id: Date.now(), name, link, icon: 'fa-solid fa-link' });
+                saveData();
+                renderAdminItems();
+                document.getElementById('newContactName').value = '';
+                document.getElementById('newContactLink').value = '';
+            }
+        }
+
+        function deleteItem(type, id) {
+            if (type === 'product') products = products.filter(p => p.id !== id);
+            if (type === 'contact') contacts = contacts.filter(c => c.id !== id);
+            if (type === 'review') reviews = reviews.filter(r => r.id !== id);
+            saveData();
+            renderAdminItems();
+        }
+
+        function renderAdminItems() {
+            const list = document.getElementById('adminItemsList');
+            let html = '<h5 style="margin: 10px 0 5px;">สินค้า:</h5>';
+            html += products.map(p => `
+                <div class="admin-list-item">
+                    <span>${p.title}</span>
+                    <button class="btn-delete" onclick="deleteItem('product', ${p.id})">ลบ</button>
+                </div>
+            `).join('');
+
+            html += '<h5 style="margin: 10px 0 5px;">ช่องทางติดต่อ:</h5>';
+            html += contacts.map(c => `
+                <div class="admin-list-item">
+                    <span>${c.name}</span>
+                    <button class="btn-delete" onclick="deleteItem('contact', ${c.id})">ลบ</button>
+                </div>
+            `).join('');
+
+            html += '<h5 style="margin: 10px 0 5px;">รีวิว:</h5>';
+            html += reviews.map(r => `
+                <div class="admin-list-item">
+                    <span>${r.name}: ${r.comment.substring(0, 15)}...</span>
+                    <button class="btn-delete" onclick="deleteItem('review', ${r.id})">ลบ</button>
+                </div>
+            `).join('');
+
+            list.innerHTML = html;
+        }
+
+        // Initialize App
+        render();
+    </script>
+</body>
+</html>
