@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* โทนสีตามรูปพังจู (Dark Blue Neon Theme) */
         :root {
             --bg-deep-blue: #0A0D28;
             --card-navy: #121841;
@@ -22,9 +21,9 @@
             --text-light: #E0E6FF;
             --text-sub: #91A0D7;
             --pill-bg: #1B235A;
+            --star-gold: #FFD166;
         }
 
-        /* ธีม Pastel สลับสไตล์ */
         body.pastel-theme {
             --bg-deep-blue: #F0F4FF;
             --card-navy: #FFFFFF;
@@ -36,7 +35,6 @@
             --pill-bg: #E3ECFF;
         }
 
-        /* ธีม Bright สลับสไตล์ */
         body.bright-theme {
             --bg-deep-blue: #141A46;
             --card-navy: #1D2663;
@@ -59,29 +57,35 @@
         body {
             background-color: var(--bg-deep-blue);
             color: var(--text-light);
-            padding: 20px 10px 80px;
+            padding: 0 10px 80px;
             display: flex;
             justify-content: center;
         }
 
-        /* App Container ขนาดสไตล์สมาร์ตโฟนการ์ด */
         .app-container {
             width: 100%;
             max-width: 450px;
             background: var(--bg-deep-blue);
-            padding: 10px;
+            padding: 0 10px 10px;
         }
 
-        /* Legacy Link Banner */
+        /* 📌 Banner ปักหมุดบนสุดตลอดเวลา */
+        .pinned-banner-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg-deep-blue);
+            padding: 10px 0;
+        }
         .legacy-banner {
             background: linear-gradient(90deg, #1B235A, #2A3680);
-            border: 1px solid var(--neon-blue);
+            border: 1.5px solid var(--neon-blue);
             color: var(--text-light);
             text-align: center;
-            padding: 8px 12px;
+            padding: 10px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
-            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
         .legacy-banner a {
             color: var(--neon-pink);
@@ -89,11 +93,9 @@
             text-decoration: underline;
         }
 
-        /* Header Branding */
         header {
             text-align: center;
-            margin-bottom: 25px;
-            position: relative;
+            margin: 15px 0 25px;
         }
         .logo-title {
             font-family: 'Fredoka', sans-serif;
@@ -111,7 +113,6 @@
             margin-top: 4px;
         }
 
-        /* Card Section Component */
         .card-box {
             background: var(--card-navy);
             border: 1.5px solid var(--card-border);
@@ -134,7 +135,6 @@
             gap: 8px;
         }
 
-        /* Theme Switcher Buttons (ตามรูปภาพต้นฉบับ) */
         .theme-switcher {
             display: flex;
             gap: 8px;
@@ -156,11 +156,7 @@
             align-items: center;
             gap: 4px;
         }
-        .btn-theme:hover {
-            border-color: var(--neon-blue);
-        }
 
-        /* 1. About Shop */
         .about-text {
             font-size: 0.85rem;
             color: var(--text-sub);
@@ -168,7 +164,6 @@
             line-height: 1.6;
         }
 
-        /* 2. Product Items (PORTFOLIO / WEB SERVICES) */
         .product-item {
             background: var(--pill-bg);
             border: 1px solid var(--card-border);
@@ -186,18 +181,9 @@
             object-fit: cover;
             background: var(--card-navy);
         }
-        .product-info {
-            flex: 1;
-        }
-        .product-name {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #FFFFFF;
-        }
-        .product-desc {
-            font-size: 0.75rem;
-            color: var(--text-sub);
-        }
+        .product-info { flex: 1; }
+        .product-name { font-size: 0.9rem; font-weight: 600; color: #FFFFFF; }
+        .product-desc { font-size: 0.75rem; color: var(--text-sub); }
         .btn-preview {
             background: linear-gradient(135deg, var(--neon-blue), #2554C7);
             color: #FFFFFF;
@@ -207,15 +193,9 @@
             font-size: 0.75rem;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(58, 117, 255, 0.3);
         }
 
-        /* 3. Contact Buttons */
-        .contacts-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+        .contacts-grid { display: flex; flex-direction: column; gap: 10px; }
         .contact-btn {
             background: var(--pill-bg);
             border: 1px solid var(--card-border);
@@ -227,13 +207,37 @@
             align-items: center;
             justify-content: space-between;
             font-size: 0.85rem;
-            font-weight: 500;
-        }
-        .contact-btn:hover {
-            border-color: var(--neon-blue);
         }
 
-        /* 4. Reviews & Credits System */
+        /* ⭐️ ส่วนสรุปดาวเฉลี่ย (Rating Summary Box) */
+        .rating-summary-box {
+            background: var(--pill-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 12px 15px;
+            text-align: center;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .rating-num {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            font-family: 'Fredoka', sans-serif;
+            line-height: 1;
+        }
+        .rating-stars {
+            color: var(--star-gold);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+        .rating-count {
+            font-size: 0.75rem;
+            color: var(--text-sub);
+        }
+
         .review-card {
             background: var(--pill-bg);
             padding: 12px 14px;
@@ -254,7 +258,15 @@
             margin-bottom: 4px;
         }
 
-        /* Inputs */
+        .star-select {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+            color: var(--star-gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
         .form-input {
             width: 100%;
             padding: 10px 14px;
@@ -266,26 +278,15 @@
             margin-bottom: 10px;
             outline: none;
         }
-        .form-input:focus {
-            border-color: var(--neon-blue);
-        }
 
-        .frame-select-box {
-            display: flex;
-            gap: 10px;
-            margin: 8px 0 12px;
-        }
+        .frame-select-box { display: flex; gap: 10px; margin: 8px 0 12px; }
         .frame-dot {
-            width: 24px;
-            height: 24px;
+            width: 24px; height: 24px;
             border-radius: 50%;
             cursor: pointer;
             border: 2px solid transparent;
         }
-        .frame-dot.selected {
-            border-color: #FFFFFF;
-            transform: scale(1.15);
-        }
+        .frame-dot.selected { border-color: #FFFFFF; transform: scale(1.15); }
 
         .btn-submit {
             width: 100%;
@@ -297,10 +298,8 @@
             font-weight: 600;
             font-size: 0.85rem;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(255, 65, 129, 0.3);
         }
 
-        /* Floating Admin Button */
         .admin-float-btn {
             position: fixed;
             bottom: 20px;
@@ -317,7 +316,6 @@
             z-index: 99;
         }
 
-        /* Modal Popup System */
         .modal {
             display: none;
             position: fixed;
@@ -374,18 +372,20 @@
 <body>
 
     <div class="app-container">
-        <!-- 1. ลิงก์ตารางสีมงคล / เครดิตเก่า ด้านบน -->
-        <div class="legacy-banner">
-            ✨ ดูตารางแผ่นชาร์ตสีมงคล & <a href="https://example.com/old-credits" target="_blank">คลิกดูลิ้งก์เครดิตเก่า</a>
+        <!-- 📌 ปักหมุดลิงก์เครดิตเก่าไว้ด้านบนสุด -->
+        <div class="pinned-banner-wrapper">
+            <div class="legacy-banner">
+                ✨ ดูตารางแผ่นชาร์ตสีมงคล & <a id="legacyLink" href="https://example.com/old-credits" target="_blank">คลิกดูลิ้งก์เครดิตเก่า</a>
+            </div>
         </div>
 
-        <!-- Header Store -->
+        <!-- Header -->
         <header>
             <div class="logo-title">✦ GINSHOPZ ✦</div>
             <div class="badge-welcome">WELCOME TO MY SHOP</div>
         </header>
 
-        <!-- 2. รายละเอียดร้าน -->
+        <!-- About -->
         <div class="card-box">
             <div class="section-title"><i class="fa-solid fa-store" style="color: var(--neon-pink);"></i> ABOUT STORE</div>
             <p class="about-text">
@@ -393,121 +393,138 @@
             </p>
         </div>
 
-        <!-- 3. หมวดหมู่ PORTFOLIO & สลับธีม (ตามรูปตัวอย่าง) -->
+        <!-- Theme Switcher -->
         <div class="card-box">
             <div class="section-title"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--neon-blue);"></i> PORTFOLIO</div>
-            
             <p class="about-text" style="font-size: 0.8rem;">ทดลองเปลี่ยนโทนสีสไตล์ร้านค้า:</p>
             <div class="theme-switcher">
-                <button class="btn-theme" onclick="setTheme('bright')">
-                    <i class="fa-solid fa-sun" style="color: #FFD166;"></i> BRIGHT
-                </button>
-                <button class="btn-theme" onclick="setTheme('dark')">
-                    <i class="fa-solid fa-moon" style="color: var(--neon-blue);"></i> DARK
-                </button>
-                <button class="btn-theme" onclick="setTheme('pastel')">
-                    <i class="fa-solid fa-heart" style="color: var(--neon-pink);"></i> PASTEL
-                </button>
+                <button class="btn-theme" onclick="setTheme('bright')"><i class="fa-solid fa-sun" style="color: #FFD166;"></i> BRIGHT</button>
+                <button class="btn-theme" onclick="setTheme('dark')"><i class="fa-solid fa-moon" style="color: var(--neon-blue);"></i> DARK</button>
+                <button class="btn-theme" onclick="setTheme('pastel')"><i class="fa-solid fa-heart" style="color: var(--neon-pink);"></i> PASTEL</button>
             </div>
         </div>
 
-        <!-- 4. ตัวอย่างสินค้า / WEB SERVICES (กดดูแล้วเปิดหน้าต่างใหม่) -->
+        <!-- Services -->
         <div class="card-box">
             <div class="section-title"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> WEB SERVICES</div>
-            <div id="productGrid">
-                <!-- โหลดสินค้าด้วย JS -->
-            </div>
+            <div id="productGrid"></div>
         </div>
 
-        <!-- 5. ช่องทางการติดต่อ -->
+        <!-- Contact -->
         <div class="card-box">
             <div class="section-title"><i class="fa-solid fa-paper-plane" style="color: var(--neon-pink);"></i> CONTACT US</div>
-            <div class="contacts-grid" id="contactGrid">
-                <!-- โหลดช่องทางติดต่อด้วย JS -->
-            </div>
+            <div class="contacts-grid" id="contactGrid"></div>
         </div>
 
-        <!-- 6. ระบบเก็บเครดิต & คอมเมนต์รีวิว -->
+        <!-- ⭐️ Reviews & Average Rating Box -->
         <div class="card-box">
-            <div class="section-title"><i class="fa-solid fa-star" style="color: #FFD166;"></i> CUSTOMER REVIEWS</div>
+            <div class="section-title"><i class="fa-solid fa-star" style="color: var(--star-gold);"></i> CUSTOMER REVIEWS</div>
             
+            <!-- การ์ดแสดงดาวเฉลี่ย -->
+            <div class="rating-summary-box">
+                <div>
+                    <div class="rating-num" id="avgRatingNum">0.0</div>
+                    <div class="rating-count" id="totalReviewsCount">จาก 0 รีวิว</div>
+                </div>
+                <div>
+                    <div class="rating-stars" id="avgRatingStars">⭐⭐⭐⭐⭐</div>
+                    <div style="font-size: 0.8rem; color: var(--text-sub); margin-top: 2px;">คะแนนประเมินเฉลี่ย</div>
+                </div>
+            </div>
+
             <form id="reviewForm">
                 <input type="text" id="revName" class="form-input" placeholder="ใส่ชื่อของคุณ..." required>
                 <textarea id="revComment" class="form-input" rows="2" placeholder="ใส่คอมเมนต์รีวิว..." required></textarea>
                 
-                <div style="font-size: 0.75rem; color: var(--text-sub);">เลือกสีกรอบการ์ดข้อความ:</div>
+                <div style="font-size: 0.75rem; color: var(--text-sub); margin-bottom: 4px;">ให้คะแนนดาว:</div>
+                <div class="star-select" id="starSelector">
+                    <i class="fa-solid fa-star" data-rating="1"></i>
+                    <i class="fa-solid fa-star" data-rating="2"></i>
+                    <i class="fa-solid fa-star" data-rating="3"></i>
+                    <i class="fa-solid fa-star" data-rating="4"></i>
+                    <i class="fa-solid fa-star" data-rating="5"></i>
+                </div>
+
+                <div style="font-size: 0.75rem; color: var(--text-sub);">เลือกสีกรอบการ์ด:</div>
                 <div class="frame-select-box">
                     <div class="frame-dot selected" style="background: var(--neon-blue);" data-frame="frame-blue"></div>
                     <div class="frame-dot" style="background: var(--neon-pink);" data-frame="frame-pink"></div>
                     <div class="frame-dot" style="background: #9D4EDD;" data-frame="frame-purple"></div>
                 </div>
 
-                <button type="submit" class="btn-submit">ส่งรีวิว & ให้ดาว ⭐⭐⭐⭐⭐</button>
+                <button type="submit" class="btn-submit">ส่งรีวิวข้อความ ⭐</button>
             </form>
 
             <div id="reviewsGrid" style="margin-top: 15px;"></div>
         </div>
     </div>
 
-    <!-- ปุ่มเปิดระบบหลังบ้าน -->
+    <!-- Admin Float Button -->
     <button class="admin-float-btn" onclick="checkAdminAccess()">
         <i class="fa-solid fa-key"></i> หลังบ้าน
     </button>
 
-    <!-- Modal หลังบ้าน Admin Panel -->
+    <!-- Modal Admin -->
     <div class="modal" id="adminModal">
         <div class="modal-body">
             <span class="close-modal" onclick="closeModal('adminModal')">&times;</span>
             <h3 style="color: #FFFFFF; text-align: center; margin-bottom: 15px;">⚙️ ระบบหลังบ้าน Admin</h3>
             
+            <!-- แก้ไขลิงก์เครดิตเก่า -->
+            <div style="border-bottom: 1px dashed var(--card-border); padding-bottom: 12px; margin-bottom: 12px;">
+                <h5 style="color: #FFD166; margin-bottom: 8px;">📌 แก้ไขลิงก์เครดิตเก่า (ด้านบนสุด)</h5>
+                <input type="text" id="legacyUrlInput" class="form-input" placeholder="ใส่ URL ลิงก์เครดิตเก่าที่นี่...">
+                <button onclick="updateLegacyLink()" class="btn-submit" style="background: #FFD166; color: #000;">อัปเดตลิงก์เครดิตเก่า</button>
+            </div>
+
             <!-- เพิ่มสินค้า -->
             <div style="border-bottom: 1px dashed var(--card-border); padding-bottom: 12px; margin-bottom: 12px;">
-                <h5 style="color: var(--neon-blue); margin-bottom: 8px;">+ เพิ่มตัวอย่างสินค้า/บริการ</h5>
+                <h5 style="color: var(--neon-blue); margin-bottom: 8px;">+ เพิ่มสินค้า/บริการ</h5>
                 <input type="text" id="pTitle" class="form-input" placeholder="ชื่อสินค้า/งาน">
                 <input type="text" id="pImg" class="form-input" placeholder="URL รูปภาพ">
-                <input type="text" id="pLink" class="form-input" placeholder="URL ลิงก์ตัวอย่าง (เมื่อกดดู)">
+                <input type="text" id="pLink" class="form-input" placeholder="URL ลิงก์ตัวอย่างงาน">
                 <button onclick="addProduct()" class="btn-submit" style="background: var(--neon-blue);">+ เพิ่มสินค้า</button>
             </div>
 
             <!-- เพิ่มช่องทางติดต่อ -->
             <div style="border-bottom: 1px dashed var(--card-border); padding-bottom: 12px; margin-bottom: 12px;">
                 <h5 style="color: var(--neon-pink); margin-bottom: 8px;">+ เพิ่มช่องทางติดต่อ</h5>
-                <input type="text" id="cName" class="form-input" placeholder="ชื่อช่องทาง (เช่น LINE / IG)">
+                <input type="text" id="cName" class="form-input" placeholder="ชื่อช่องทาง (LINE / IG)">
                 <input type="text" id="cLink" class="form-input" placeholder="URL ลิงก์ติดต่อ">
                 <button onclick="addContact()" class="btn-submit" style="background: var(--neon-pink);">+ เพิ่มช่องทาง</button>
             </div>
 
             <!-- ลบข้อมูล -->
             <div>
-                <h5 style="color: #FFD166; margin-bottom: 8px;">จัดการ / ลบข้อมูล</h5>
+                <h5 style="color: var(--text-sub); margin-bottom: 8px;">จัดการ / ลบข้อมูล</h5>
                 <div id="adminItemsList"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // รหัสผ่านเข้าหลังบ้าน (ตั้งไว้ที่ 1234)
         const ADMIN_PASS = "1234";
 
-        // Initial Data
-        let products = JSON.parse(localStorage.getItem('gin_p_v2')) || [
+        let legacyUrl = localStorage.getItem('gin_legacy_url') || 'https://example.com/old-credits';
+
+        let products = JSON.parse(localStorage.getItem('gin_p_v3')) || [
             { id: 1, title: 'เว็บร้านค้าสไตล์พังจู', img: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=300', link: 'https://google.com' },
             { id: 2, title: 'เทมเพลตป้าย Goodnotes', img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300', link: 'https://google.com' }
         ];
 
-        let contacts = JSON.parse(localStorage.getItem('gin_c_v2')) || [
+        let contacts = JSON.parse(localStorage.getItem('gin_c_v3')) || [
             { id: 1, name: 'LINE Official Account', link: 'https://line.me', icon: 'fa-brands fa-line' },
             { id: 2, name: 'Instagram Store', link: 'https://instagram.com', icon: 'fa-brands fa-instagram' }
         ];
 
-        let reviews = JSON.parse(localStorage.getItem('gin_r_v2')) || [
-            { id: 1, name: 'คุณเมย์', comment: 'งานสวยเนี๊ยบ โทนสีนีออนพังจูสวยมากๆ ค่ะ ⭐⭐⭐⭐⭐', frame: 'frame-blue' },
-            { id: 2, name: 'คุณแบม', comment: 'บริการดีมาก ส่งงานไวสุดๆ แนะนำเลยค่ะ', frame: 'frame-pink' }
+        let reviews = JSON.parse(localStorage.getItem('gin_r_v3')) || [
+            { id: 1, name: 'คุณเมย์', comment: 'งานสวยเนี๊ยบ โทนสีนีออนพังจูสวยมากๆ ค่ะ', rating: 5, frame: 'frame-blue' },
+            { id: 2, name: 'คุณแบม', comment: 'บริการดีมาก ส่งงานไวสุดๆ แนะนำเลยค่ะ', rating: 5, frame: 'frame-pink' }
         ];
 
         let selectedFrame = 'frame-blue';
+        let selectedRating = 5;
 
-        // สลับธีมสี (Bright, Dark, Pastel)
         function setTheme(theme) {
             document.body.classList.remove('bright-theme', 'pastel-theme');
             if (theme === 'bright') document.body.classList.add('bright-theme');
@@ -515,13 +532,17 @@
         }
 
         function saveData() {
-            localStorage.setItem('gin_p_v2', JSON.stringify(products));
-            localStorage.setItem('gin_c_v2', JSON.stringify(contacts));
-            localStorage.setItem('gin_r_v2', JSON.stringify(reviews));
+            localStorage.setItem('gin_legacy_url', legacyUrl);
+            localStorage.setItem('gin_p_v3', JSON.stringify(products));
+            localStorage.setItem('gin_c_v3', JSON.stringify(contacts));
+            localStorage.setItem('gin_r_v3', JSON.stringify(reviews));
             render();
         }
 
         function render() {
+            // Update Legacy Link
+            document.getElementById('legacyLink').href = legacyUrl;
+
             // Render Products
             document.getElementById('productGrid').innerHTML = products.map(p => `
                 <div class="product-item">
@@ -542,19 +563,40 @@
                 </a>
             `).join('');
 
+            // Calculate Average Rating & Render
+            calculateAverageRating();
+
             // Render Reviews
             document.getElementById('reviewsGrid').innerHTML = reviews.map(r => `
                 <div class="review-card ${r.frame}">
                     <div class="review-header">
                         <span>${r.name}</span>
-                        <span>⭐⭐⭐⭐⭐</span>
+                        <span>${'⭐'.repeat(r.rating || 5)}</span>
                     </div>
                     <div style="color: var(--text-light);">${r.comment}</div>
                 </div>
             `).join('');
         }
 
-        // กดดูตัวอย่างงานแล้วเปิดหน้าต่างใหม่
+        // คำนวณดาวเฉลี่ย
+        function calculateAverageRating() {
+            if (reviews.length === 0) {
+                document.getElementById('avgRatingNum').innerText = '0.0';
+                document.getElementById('totalReviewsCount').innerText = 'จาก 0 รีวิว';
+                document.getElementById('avgRatingStars').innerText = '⭐⭐⭐⭐⭐';
+                return;
+            }
+
+            const totalStars = reviews.reduce((acc, r) => acc + (r.rating || 5), 0);
+            const avg = (totalStars / reviews.length).toFixed(1);
+
+            document.getElementById('avgRatingNum').innerText = avg;
+            document.getElementById('totalReviewsCount').innerText = `จาก ${reviews.length} รีวิว`;
+            
+            const roundedAvg = Math.round(avg);
+            document.getElementById('avgRatingStars').innerText = '⭐'.repeat(roundedAvg);
+        }
+
         function openPreview(url) {
             if (url) {
                 window.open(url, '_blank');
@@ -563,7 +605,23 @@
             }
         }
 
-        // ระบบเลือกสีกรอบการ์ดคอมเมนต์
+        // ดาวสำหรับฟอร์มส่งรีวิว
+        document.querySelectorAll('#starSelector i').forEach(star => {
+            star.addEventListener('click', (e) => {
+                selectedRating = parseInt(e.target.getAttribute('data-rating'));
+                document.querySelectorAll('#starSelector i').forEach((s, index) => {
+                    if (index < selectedRating) {
+                        s.classList.remove('fa-regular');
+                        s.classList.add('fa-solid');
+                    } else {
+                        s.classList.remove('fa-solid');
+                        s.classList.add('fa-regular');
+                    }
+                });
+            });
+        });
+
+        // สีกรอบการ์ด
         document.querySelectorAll('.frame-dot').forEach(dot => {
             dot.addEventListener('click', (e) => {
                 document.querySelectorAll('.frame-dot').forEach(d => d.classList.remove('selected'));
@@ -572,22 +630,22 @@
             });
         });
 
-        // ส่งคอมเมนต์รีวิว
+        // Submit Review
         document.getElementById('reviewForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('revName').value;
             const comment = document.getElementById('revComment').value;
 
-            reviews.unshift({ id: Date.now(), name, comment, frame: selectedFrame });
+            reviews.unshift({ id: Date.now(), name, comment, rating: selectedRating, frame: selectedFrame });
             saveData();
             document.getElementById('reviewForm').reset();
             alert('ขอบคุณสำหรับรีวิวค่ะ! ✨');
         });
 
-        // ตรวจสอบรหัสผ่านหลังบ้าน
         function checkAdminAccess() {
             const pwd = prompt("กรุณากรอกรหัสผ่านเพื่อเข้าสู่ระบบหลังบ้าน:");
             if (pwd === ADMIN_PASS) {
+                document.getElementById('legacyUrlInput').value = legacyUrl;
                 renderAdminList();
                 document.getElementById('adminModal').classList.add('active');
             } else if (pwd !== null) {
@@ -599,7 +657,16 @@
             document.getElementById(modalId).classList.remove('active');
         }
 
-        // Admin Functions
+        // Admin - อัปเดตลิงก์เครดิตเก่า
+        function updateLegacyLink() {
+            const newUrl = document.getElementById('legacyUrlInput').value;
+            if (newUrl) {
+                legacyUrl = newUrl;
+                saveData();
+                alert('อัปเดตลิงก์เครดิตเก่าเรียบร้อย!');
+            }
+        }
+
         function addProduct() {
             const title = document.getElementById('pTitle').value;
             const img = document.getElementById('pImg').value || 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=300';
@@ -657,7 +724,7 @@
             html += '<div style="font-size:0.8rem; color:#FFD166; margin-top:5px;">รีวิว:</div>';
             html += reviews.map(r => `
                 <div class="admin-row">
-                    <span>${r.name}</span>
+                    <span>${r.name} (${r.rating || 5}⭐)</span>
                     <button class="btn-del" onclick="deleteItem('review', ${r.id})">ลบ</button>
                 </div>
             `).join('');
@@ -665,7 +732,6 @@
             container.innerHTML = html;
         }
 
-        // Run Application
         render();
     </script>
 </body>
